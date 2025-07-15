@@ -19,7 +19,8 @@ muon_pt = branches["Muon_pt"]
 print(muon_pt[0].tolist())
 print(ak.num(muon_pt))
 print(ak.flatten(muon_pt))
-print(muon_pt[:, 0])
+first_muon_pt = ak.firsts(muon_pt)
+print(first_muon_pt)
 
 # 4. SELECTIONS AND FILTERING
 good_pt = branches["Muon_pt"] > 20
@@ -35,16 +36,6 @@ plt.xlabel("Muon pT [GeV]")
 plt.ylabel("Counts")
 plt.title("Muon Transverse Momentum")
 plt.show()
-
-# 6. SAVING RESULTS
-with uproot.recreate("filtered.root") as fout:
-    fout["Events"] = filtered_events
-
-with uproot.recreate("selected.root") as fout:
-    fout["Events"] = {
-        "Muon_pt": branches["Muon_pt"],
-        "Muon_eta": branches["Muon_eta"]
-    }
 
 # PERFORMANCE TIPS (uncomment to use)
 # for batch in tree.iterate(step_size="100 MB"):
