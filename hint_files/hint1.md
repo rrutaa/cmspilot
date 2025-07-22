@@ -37,14 +37,7 @@ plt.ylabel("Counts")
 plt.title("Muon Transverse Momentum")
 plt.show()
 
-# PERFORMANCE TIPS (uncomment to use)
-# for batch in tree.iterate(step_size="100 MB"):
-#     process(batch)
-
-# branches = tree.arrays(num_workers=4)
-# tree = tree.cache()
-
 # COMMON ERRORS
-# KeyError → check file.keys()
-# Cannot interpret → specify library="pd" or "ak"
-# Memory errors → use iterate() or smaller step_size
+KeyError → check file.keys()
+cannot interpret → specify library="pd" or "ak"
+Memory errors → use iterate() or smaller step_size

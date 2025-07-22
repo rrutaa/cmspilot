@@ -1,6 +1,4 @@
 # CMS Analysis Combined Hint Snippets
-
-```python
 import uproot
 import awkward as ak
 import matplotlib.pyplot as plt
