@@ -36,6 +36,30 @@ plt.show()
 
 ## 6. OTHER OPERATIONS
 btag_discriminant = branches["Jet_btag"]  # Probability of jets originating from a b quark
+absolute_value = abs(value)
+
+## 7. HANDLING JAGGED ARRAYS: LEADING OBJECTS SAFELY
+
+# Assume we have a jagged array of some physics object, e.g., "Muon_eta"
+muon_eta = tree["Muon_eta"].array()  # Jagged array: one list per event
+
+# Limit to first N events
+n = 5000
+muon_eta_subset = muon_eta[:n]
+
+# Filter out events with no entries (e.g., no muons)
+nonempty = muon_eta_subset[ak.num(muon_eta_subset) > 0]
+
+# Extract leading value (first element in each non-empty event)
+leading_muon_eta = nonempty[:, 0]
+
+# Plot the distribution of the leading value
+plt.hist(leading_muon_eta, bins=50, range=(-3.2, 3.2))
+plt.xlabel("Leading Muon Eta")
+plt.ylabel("Counts")
+plt.title("Leading Muon Eta")
+plt.show()
+
 
 # ΔR between two objects is defined as:
 # sqrt( (Δphi)^2 + (Δeta)^2 )
@@ -48,6 +72,19 @@ n = 10000
 events_firstN = tree.arrays(entry_stop=n)
 
 ## COMMON ERRORS
-# KeyError → check file.keys()
-# cannot interpret → specify library="pd" or "ak"
-# Memory errors → use iterate() or smaller step_size
+
+# KeyError → The requested branch or object name is not found.
+#             → Use `print(file.keys())` or `print(branches.keys())` to check available names.
+
+# cannot interpret as AwkwardArray → Uproot doesn't know how to decode this object.
+#             → Use `library="ak"` or `library="pd"` in `arrays()` or `iterate()` to specify the return format.
+
+# axis=1 exceeds the depth of this array (1) → You're applying axis=1 on a flat array.
+#             → Only use `axis=1` on jagged arrays (e.g., arrays like `Muon_pt` with structure [events][muons]).
+#             → Check structure with `print(ak.type(array))`.
+
+# MemoryError or crashes when loading → You're trying to load too many events or branches at once.
+#             → Use `tree.iterate()` or load only a subset with `entry_stop=N` or `filter_name=[...]`.
+
+# TypeError: cannot convert [...] to numpy array → Awkward arrays aren't NumPy arrays.
+#             → Use `ak.to_numpy()` or `ak.flatten()` when needed, especially before plotting.
