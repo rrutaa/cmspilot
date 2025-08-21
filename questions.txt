@@ -1,0 +1,8 @@
+Q1: Plot the missing missing transverse energy of all events in XYZ dataset (or file)
+Q2: Plot the transverse momentum of all jets of all events in XYZ dataset
+Q3: Plot the transverse momentum of all jets with absolute of eta < 1 in the first 10000 events of XYZ dataset
+Q4: Plot the missing transverse energy of events that have at least two jets with pT > 40 GeV of XYZ dataset
+Q5: Plot the missing transverse energy of events that have an opposite-charge muon pair with an invariant mass between 60 and 120 GeV in XYZ dataset
+Q6: For events with at least three jets, plot the transverse momentum of the trijet combination in each event that has the invariant mass closest to 172.5 GeV, and plot the maximum b-tagging discriminant value among the jets in this trijet for each event in XYZ dataset
+Q7: Plot the scalar sum of the transverse momentum of jets with pT > 30 GeV that are not within 0.4 in ΔR of any electron or muon with pT > 10 GeV for each event in XYZ dataset
+Q8: For events in XYZ dataset with at least three light leptons and a same-flavor opposite-charge light lepton pair, find the pair that has the invariant mass closest to 91.2 GeV in each event and plot the transverse mass of the system consisting of the missing transverse momentum and the highest-pT light lepton not in this pair
