@@ -7,8 +7,6 @@ import matplotlib.pyplot as plt  # For plotting histograms
 ```
 
 ---
-
-
 ## 1. BASIC FILE OPERATIONS
 
 ```python
@@ -20,8 +18,6 @@ print(file["Events"].num_entries)  # Show number of entries in the "Events" TTre
 ```
 
 ---
-
-
 ## 2. LOADING DATA
 
 ```python
@@ -32,8 +28,6 @@ selected = tree.arrays(["Muon_pt", "Muon_eta"])  # Load only specified branches:
 ```
 
 ---
-
-
 ## 3. WORKING WITH JAGGED ARRAYS
 
 ```python
@@ -44,8 +38,6 @@ num_muons = ak.count(muon_pt, axis=1)  # Count number of muons per event
 ```
 
 ---
-
-
 ## 4. SELECTIONS AND FILTERING
 
 ```python
@@ -59,8 +51,6 @@ filtered_events = branches[events_with_good_muons]  # Apply event-level filter
 ```
 
 ---
-
-
 ## 5. PLOTTING
 
 ```python
@@ -73,8 +63,6 @@ plt.show()
 ```
 
 ---
-
-
 ## 6. OTHER OPERATIONS
 
 ```python
@@ -84,8 +72,6 @@ absolute_value = abs(value)               # Absolute value of a parameter, ak.ab
 ```
 
 ---
-
-
 ## 7. HANDLING JAGGED ARRAYS: LEADING OBJECTS SAFELY
 
 # Assume we have a jagged array of some physics object, e.g., "Muon_eta"
@@ -96,7 +82,6 @@ muon_eta = tree["Muon_eta"].array()  # Jagged array: one list per event
 ```
 
 ---
-
 # Limit to first N events
 
 ```python
@@ -106,8 +91,6 @@ muon_eta_subset = muon_eta[:n]
 ```
 
 ---
-
-
 # Filter out events with no entries (e.g., 0 muons)
 
 ```python
@@ -136,7 +119,6 @@ plt.show()
 ```
 
 ---
-
 # ΔR between two objects is defined as:
 # sqrt( (Δphi)^2 + (Δeta)^2 )
 
@@ -148,7 +130,6 @@ dimuons = ak.combinations(good_muons, 2, axis=0)
 ```
 
 ---
-
 # Limit analysis to the first N events (e.g., 10,000)
 
 ```python
