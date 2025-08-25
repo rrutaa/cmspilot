@@ -5,7 +5,6 @@
 - Jet_phi        # jet azimuthal angle (phi)
 - Jet_mass       # jet mass
 - Jet_btag       # jet b-tag score/discriminant
-- Jet_energy     # jet energy
 
 ## Muons
 - nMuon          # number of muons per event
@@ -14,7 +13,6 @@
 - Muon_phi       # muon azimuthal angle
 - Muon_mass      # muon mass
 - Muon_charge    # muon charge
-- Muon_iso       # muon isolation
 
 ## Electrons
 - nElectron      # number of electrons per event
@@ -23,15 +21,12 @@
 - Electron_phi   # electron azimuthal angle
 - Electron_mass  # electron mass
 - Electron_charge# electron charge
-- Electron_iso   # electron isolation
 
 ## Photons
 - nPhoton        # number of photons per event
 - Photon_pt      # photon transverse momentum
 - Photon_eta     # photon pseudorapidity
 - Photon_phi     # photon azimuthal angle
-- Photon_energy  # photon energy
-- Photon_iso     # photon isolation
 
 ## Taus
 - nTau           # number of taus per event
