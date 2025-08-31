@@ -1,6 +1,6 @@
-# CMS RAG Assistant
+# CMS Pilot
 
-This project is a Retrieval-Augmented Generation (RAG) pipeline that uses Ollama, ChromaDB, and LangChain to answer questions about CMS Python analysis code using hint files (code, variables, common errors).
+This project is a Retrieval-Augmented Generation (RAG) pipeline that uses Ollama, ChromaDB, and LangChain to generate CMS analysis code using hint files (code, variables, common errors).
 
 ## Features
 - Loads and chunks hint files (`.md`).
