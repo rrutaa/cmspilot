@@ -1,0 +1,30 @@
+paths:
+  hint_code: "./hint_files/code"
+  hint_variables: "./hint_files/variables/variables.md"
+  hint_errors: "./hint_files/errors/errors.md"
+  questions_file: "./questions.txt"
+  chroma_storage: "./chroma_storage"
+
+models:
+  llm: "llama3"
+  embedding: "mxbai-embed-large"
+
+retriever:
+  top_k: 5
+  headers_to_split_on:
+    - ["##", "Header 2"]
+    - ["###", "Header 3"]
+    - ["####", "Header 4"]
+
+generation:
+  temperature: 0
+  top_p: 1
+  top_k: 0
+  max_retries: 5
+
+context:
+  max_context_tokens: 7000
+
+logging:
+  level: "INFO"
+  preview_chars: 200
